@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
+import axios from 'axios';
 import './App.css';
 
 function App() {
+  const [url, setUrl] = useState('');
+
+  const handleClick = async () => {
+    const response = await axios.get(`https://tinyurl.com/api-create.php?url=${url}`);
+    const data = response.data;
+    setUrl(data);
+  }
+  const handleInput = (e) => {
+    setUrl(e.target.value);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <input type="text" placeholder="Enter big URL" value={url} onChange={handleInput} />
+        <button onClick={handleClick} >Shorten</button>
+      </div>
     </div>
   );
 }
