@@ -19,15 +19,14 @@
 }
 input,button{
   padding:20px;
-  font-size: xx-large;
+  font-size: 2.6vw;
 }
 input{
-  min-width: 600px;
   border:none;
   outline:none;
   font-family:'Fira Code',monospace;
   font-weight:600;
-  color:rgb(70, 70, 72)
+  color:rgb(70, 70, 72);
 }
 button{
   border:none;
